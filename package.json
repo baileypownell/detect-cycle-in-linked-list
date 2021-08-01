@@ -1,0 +1,20 @@
+{
+  "name": "detect-cycle-in-linked-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "detect-cycle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node detect-cycle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baileypownell/detect-cycle-in-linked-list.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baileypownell/detect-cycle-in-linked-list/issues"
+  },
+  "homepage": "https://github.com/baileypownell/detect-cycle-in-linked-list#readme"
+}
