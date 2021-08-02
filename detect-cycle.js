@@ -16,15 +16,12 @@ class LinkedList {
     }
 
     addNode(number) {
-        // console.log('adding node')
         let node = new Node(number);
 
         // Is it currently empty?
         if(!this.tail) {
             // Head and tail become one and the same
             this.head = this.tail = node;
-            // console.log('this.head = ', this.head)
-            // console.log('this.tail = ', this.tail)
             return node;
         }
 
@@ -32,8 +29,6 @@ class LinkedList {
         // and update `tail` to point at this new node
         this.tail.next = node;
         this.tail = node;
-        // console.log(node)
-        // console.log(this.tail)
 
         // Return the node we added
         return node;
@@ -46,14 +41,31 @@ for (let i = 0; i <= 100; i++) {
     linked_list.addNode(i)
 }
 
-// console.log(linked_list.head)
+// a linked list with a loop will NOT have a tail, i.e. it will not have a node whose "next" === null
 
-// Step 2: creating contains cycle function
+// Step 2: creating contains cycle function, using the tortoise/hare alogrithm
+const containsCycle = (headNode) => {
+    let hare = headNode
+    let tortoise = headNode
 
-const containsCycle = (node) => {
+    while (hare != null && hare.next !== null) {
+        hare = hare.next.next 
+        tortoise = tortoise.next 
+        if (tortoise === hare) {
+           return true 
+        }
+    }
     return false
 }
 
-containsCycle(linked_list.head)
+// LINE TO MAKE THIS CIRCULAR: 
+// linked_list.tail.next = linked_list.head
 
 // Step 3: running the function on the linked list
+const has_cycle = containsCycle(linked_list.head)
+
+if (has_cycle) {
+    console.log('Cycle found.')
+} else {
+    console.log('There is no cycle.')
+}
